@@ -24,6 +24,13 @@
       </div>
     </nav>
     <div class="content">
+      <!-- Overlay -->
+      <div
+        class="overlay"
+        v-if="activeSideView"
+        @click="closeSideView"
+      ></div>
+
       <div class="main-content">
         <router-view />
       </div>
@@ -75,17 +82,17 @@ const closeSideView = () => {
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   height: 110px;
   background-color: #00a6ce;
-  border-bottom: 1px solid #ddd;
   transition: transform 0.2s ease;
   transform: translateY(0);
 }
+
 
 .logo {
   height: 90px;
@@ -110,6 +117,19 @@ const closeSideView = () => {
 .main-content {
   flex: 1;
   padding: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
+  transition: opacity 0.3s ease;
 }
 
 </style>
