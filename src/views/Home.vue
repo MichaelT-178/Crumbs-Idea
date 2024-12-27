@@ -1,9 +1,5 @@
 <template>
 	<p class="title">HOME PAGE</p>
-	<LinkBtn
-		:path="'/second-page'"
-		:buttonText="'Go to 2nd page'">
-	</LinkBtn>
 </template>
 
 
