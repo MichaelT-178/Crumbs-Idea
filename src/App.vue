@@ -44,56 +44,10 @@ const mainClass = computed(() => {
 
 html, body {
   background-color: #F2F2F2;
-  /* background-color: #00b3ad; */
-}
-
-.alternative-purple-header {
-  background-color: #620086;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.alternative-crumbs-logo {
-  height: 70px;
-  width: auto;
-  /* border: 1px solid white; */
-  border-radius: 8px;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .mobile-content {
   padding-top: 110px;
 }
 
-.desktop-content {
-  padding-top: 120px;
-}
-
 </style>
-
-
-
-
-<!-- <template>
-	<p class="test-header">TEST WEBSITE</p>
-	<router-view />
-</template>
-
-
-<script setup>
-
-</script>
-
-
-<style scoped>
-.test-header {
-	font-size: 25px;
-}
-
-</style> -->

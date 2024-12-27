@@ -1,7 +1,8 @@
 <template>
   <div>
     <nav class="navbar" ref="navbarRef">
-      <img :src="BlueLogo" alt="Blue Logo" class="logo" />
+      <!-- <img :src="BlueLogo" alt="Blue Logo" class="logo" /> -->
+      <img :src="YellowLogo" alt="Yellow Logo" class="logo" />
       <div class="nav-links">
         <span
           class="material-symbols-outlined search-icon"
@@ -30,11 +31,6 @@
         v-if="activeSideView"
         @click="closeSideView"
       ></div>
-
-      <div class="main-content">
-        <router-view />
-      </div>
-
       <transition name="slide">
         <SearchSideView
           v-if="activeSideView === 'search'"
@@ -60,7 +56,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import BlueLogo from '../../images/logos/blue-logo.png';
+// import BlueLogo from '../../images/logos/blue-logo.png';
+import YellowLogo from '../../images/logos/yellow-logo.png';
 import SearchSideView from './SearchSideView.vue';
 import ProfileSideView from './ProfileSideView.vue';
 import CartSideView from './CartSideView.vue';
@@ -89,10 +86,10 @@ const closeSideView = () => {
   padding: 1rem;
   height: 110px;
   background-color: #00a6ce;
+  /* background-color: #f3e7a4; */
   transition: transform 0.2s ease;
   transform: translateY(0);
 }
-
 
 .logo {
   height: 90px;
@@ -111,7 +108,19 @@ const closeSideView = () => {
 
 .content {
   display: flex;
-  height: calc(100vh - 110px);
+}
+
+.search-icon,
+.profile-icon,
+.cart-icon {
+  color: white;
+  font-size: 29px;
+}
+
+.search-icon:hover,
+.profile-icon:hover,
+.cart-icon:hover {
+  color: #d2d2d2;
 }
 
 .main-content {
