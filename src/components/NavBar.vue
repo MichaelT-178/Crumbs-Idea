@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar">
+    <nav class="navbar" ref="navbarRef">
       <img :src="BlueLogo" alt="Blue Logo" class="logo" />
       <div class="nav-links">
         <span
@@ -73,6 +73,9 @@ const closeSideView = () => {
 
 <style scoped>
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,6 +83,8 @@ const closeSideView = () => {
   height: 110px;
   background-color: #00a6ce;
   border-bottom: 1px solid #ddd;
+  transition: transform 0.2s ease;
+  transform: translateY(0);
 }
 
 .logo {
