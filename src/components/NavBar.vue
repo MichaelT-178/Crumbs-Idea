@@ -9,12 +9,14 @@
         >
           search
         </span>
+        <div class="divider"></div>
         <span
           class="material-symbols-outlined profile-icon"
           @click="openSideView('profile')"
         >
           account_circle
         </span>
+        <div class="divider"></div>
         <span
           class="material-symbols-outlined cart-icon"
           @click="openSideView('cart')"
@@ -128,6 +130,14 @@ onUnmounted(() => {
 .nav-links {
   display: flex;
   gap: 1rem;
+}
+
+.divider {
+  height: 25px;
+  width: 1px;
+  background-color: white;
+  margin: 0 5px;
+  align-self: center;
 }
 
 .material-symbols-outlined {
