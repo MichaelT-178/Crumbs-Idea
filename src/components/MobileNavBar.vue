@@ -11,44 +11,21 @@
       </div>
       <img :src="BlueLogo" alt="Blue Logo" class="logo" />
       <div class="nav-links nav-right">
-        <span
+        <div
           class="material-symbols-outlined profile-icon"
-          @click="openSideView('profile')"
+          @click="goToProfileView"
         >
           account_circle
-        </span>
-        <span
+        </div>
+        <div
           class="material-symbols-outlined cart-icon"
-          @click="openSideView('cart')"
+          @click="goToCartView"
         >
           shopping_cart
-        </span>
+        </div>
       </div>
     </nav>
     <div class="content">
-      <div
-        class="overlay"
-        v-if="activeSideView"
-        @click="closeSideView"
-      ></div>
-      <transition name="slide">
-        <SearchSideView
-          v-if="activeSideView === 'search'"
-          @close="closeSideView"
-        />
-      </transition>
-      <transition name="slide">
-        <ProfileSideView
-          v-if="activeSideView === 'profile'"
-          @close="closeSideView"
-        />
-      </transition>
-      <transition name="slide">
-        <CartSideView
-          v-if="activeSideView === 'cart'"
-          @close="closeSideView"
-        />
-      </transition>
       <transition name="slide">
         <MobileSideBar
           v-if="activeSideView === 'menu'"
@@ -63,11 +40,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import BlueLogo from '../../images/logos/blue-logo.png';
-import SearchSideView from './SearchSideView.vue';
-import ProfileSideView from './ProfileSideView.vue';
-import CartSideView from './CartSideView.vue';
 import MobileSideBar from './MobileSideBar.vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const activeSideView = ref(null);
 
 const openSideView = (view) => {
@@ -99,6 +75,14 @@ const handleKeyup = (event) => {
     keysPressed.clear();
   }
 };
+
+const goToProfileView = () => {
+  router.push("/second-page");
+}
+
+const goToCartView = () => {
+  router.push("/second-page");
+}
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown);
