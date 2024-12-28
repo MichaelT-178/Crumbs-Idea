@@ -1,14 +1,16 @@
 <template>
   <div>
     <nav class="navbar" ref="navbarRef">
-      <span
-        class="material-symbols-outlined hamburger-icon"
-        @click="openSideView('menu')"
-      >
-        menu
-      </span>
+      <div class="nav-links nav-left">
+        <span
+          class="material-symbols-outlined hamburger-icon"
+          @click="openSideView('menu')"
+        >
+          menu
+        </span>
+      </div>
       <img :src="BlueLogo" alt="Blue Logo" class="logo" />
-      <div class="nav-links">
+      <div class="nav-links nav-right">
         <span
           class="material-symbols-outlined profile-icon"
           @click="openSideView('profile')"
@@ -82,9 +84,9 @@ const handleKeydown = (event) => {
   keysPressed.add(event.code);
 
   if (
-    (keysPressed.has('AltLeft') || keysPressed.has('AltRight') 
-    || keysPressed.has('MetaLeft') || keysPressed.has('MetaRight'))
-    && keysPressed.has('KeyS')
+    (keysPressed.has('AltLeft') || keysPressed.has('AltRight') ||
+      keysPressed.has('MetaLeft') || keysPressed.has('MetaRight')) &&
+    keysPressed.has('KeyS')
   ) {
     event.preventDefault();
     openSideView('search');
@@ -118,7 +120,7 @@ onUnmounted(() => {
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center the logo */
   padding: 18px;
   height: 110px;
   background-color: #00a6ce;
@@ -126,24 +128,31 @@ onUnmounted(() => {
   transform: translateY(0);
 }
 
+.nav-links.nav-left,
+.nav-links.nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-links.nav-left {
+  left: 18px;
+}
+
+.nav-links.nav-right {
+  right: 18px;
+  display: flex;
+  gap: 15px;
+}
+
 .logo {
   height: 80px;
   object-fit: contain;
-  margin: 0 auto;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
 }
 
 .material-symbols-outlined {
   font-size: 24px;
   cursor: pointer;
-}
-
-.content {
-  display: flex;
 }
 
 .hamburger-icon,
@@ -159,6 +168,10 @@ onUnmounted(() => {
   color: #d2d2d2;
 }
 
+.content {
+  display: flex;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -170,5 +183,4 @@ onUnmounted(() => {
   z-index: 10;
   transition: opacity 0.3s ease;
 }
-
 </style>
