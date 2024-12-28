@@ -23,7 +23,7 @@ const emitClose = () => {
   position: fixed;
   top: 110px;
   right: 0;
-  width: 300px;
+  width: 400px;
   height: calc(100% - 110px);
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@ const emitClose = () => {
 }
 
 .slide-enter-active {
-  transition: all 0.2s ease-out;
+  transition: all 0.175s ease-out;
 }
 
 .slide-leave-active {
