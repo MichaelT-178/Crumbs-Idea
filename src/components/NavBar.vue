@@ -54,7 +54,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import YellowLogo from '../../images/logos/yellow-logo.png';
+import YellowLogo from '../../images/logos/blue-logo.png';
 import SearchSideView from './SearchSideView.vue';
 import ProfileSideView from './ProfileSideView.vue';
 import CartSideView from './CartSideView.vue';
