@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <component :is="isMobile ? NavBar : NavBar" key="nav" />
+    <component :is="isMobile ? MobileNavBar : NavBar" key="nav" />
     <main :class="mainClass">
       <router-view />
     </main>
@@ -11,7 +11,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import NavBar from "./components/NavBar.vue";
-// import MobileNavBar from "./components/MobileNavBar.vue";
+import MobileNavBar from "./components/MobileNavBar.vue";
 // import PurpleLogo from './assets/logos/purple-logo.png';
 
 const isMobile = ref(window.innerWidth <= 800);
@@ -46,8 +46,5 @@ html, body {
   background-color: #F2F2F2;
 }
 
-.mobile-content {
-  padding-top: 110px;
-}
 
 </style>

@@ -12,6 +12,17 @@
         placeholder="Search for items..."
         class="search-bar"
       />
+      <p v-if="searchQuery.trim() !== ''" class="results-text">
+        Showing results for {{ searchQuery }}
+      </p>
+      <p v-if="searchQuery.trim() !== '' && filteredItems.length === 0" 
+        class="empty-results-text">
+        We couldn't find any items for {{ searchQuery }}, try our 
+          <span
+            @click="goToSearchPage"
+            class="search-page-link">
+            search page</span>.
+      </p>
       <ul>
         <li
           v-for="item in filteredItems"
@@ -75,6 +86,12 @@ const goToItem = (item) => {
 
   emitClose();
 };
+
+const goToSearchPage = () => {
+  console.log("SEARCH PAGE");
+  router.push("/second-page");
+  emitClose();
+}
 
 </script>
 
@@ -165,6 +182,29 @@ li {
 
 .menu-item:hover {
   background-color: #d7d7d7;
+  cursor: pointer;
+}
+
+.results-text {
+  color: #464747;
+  line-height: 1.5;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  font-weight: 550;
+}
+
+.empty-results-text {
+  color: #686868;
+  margin-top: -10px;
+  font-size: 18px;
+}
+
+.search-page-link {
+  color: #00a6ce;
+}
+
+.search-page-link:hover {
+  color: darkblue;
   cursor: pointer;
 }
 
